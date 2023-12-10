@@ -1,0 +1,2 @@
+Musí být stáhlý soubor credentials z google cloud console
+Musí být nainstalována tyto pip: pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client httplib2 requests
