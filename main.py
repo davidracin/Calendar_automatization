@@ -38,8 +38,8 @@ event_interval = input("Napiště kolikrát se má událost opakovat: ")
 event_start_time = event_start_time + ":00"
 event_end_time = event_end_time + ":00"
 
-event_start_date = datetime.strptime(event_start_date, '%d.%m.%Y').strftime('%Y-%m-%d').isoformat()
-event_end_date = datetime.strptime(event_end_date, '%d.%m.%Y').strftime('%Y-%m-%d').isoformat()
+event_start_date = datetime.strptime(event_start_date, '%d.%m.%Y').isoformat().split('T')[0]
+event_end_date = datetime.strptime(event_end_date, '%d.%m.%Y').isoformat().split('T')[0]
 
 if event_recurrence == "denně": event_recurrence = "DAILY"
 if event_recurrence == "týdně": event_recurrence = "WEEKLY"
@@ -50,12 +50,12 @@ event = {
         'summary': event_summary,
         'description': event_description,
         'start': {
-            'dateTime': event_start_date + "T" + event_start_time,
-            'timeZone': 'Europe/Prague'
+        'dateTime': event_start_date + "T" + event_start_time,
+        'timeZone': 'Europe/Prague',
         },
         'end': {
-            'dateTime': event_end_date + "T" + event_end_time,
-            'timeZone': 'Europe/Prague'
+        'dateTime': event_end_date + "T" + event_end_time,
+        'timeZone': 'Europe/Prague',
         },
         'recurrence': [
             'RRULE:FREQ=' + event_recurrence + ';' + 'COUNT=' + event_interval
