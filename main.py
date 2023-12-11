@@ -62,7 +62,7 @@ event = {
         ]
     }
 event = service.events().insert(calendarId='primary', body=event).execute()
-print('Událost vytvořena: %s' % event.get('id'))
+print(f'Událost vytvořena: {event.get("id")}')
 
 if __name__ == "__main__":
   main()
