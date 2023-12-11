@@ -1,4 +1,5 @@
 import os
+import json
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -8,6 +9,9 @@ SCOPES = 'https://www.googleapis.com/auth/calendar'
 
 def delete_event():
     creds = None
+    if os.path.exists('token.json'):
+        with open('token.json', 'r') as token:
+            creds = Credentials.from_authorized_user_info(json.load(token))
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
