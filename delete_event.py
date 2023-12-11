@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import os
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -48,5 +47,4 @@ service = build("calendar", "v3", credentials=creds)
 event_id = input("Napište ID události, kterou chcete smazat: ")
 
 service.events().delete(calendarId='primary', eventId=event_id).execute()
->>>>>>> fbd8ffda5fbd7eb1f7a436791eef4f6017b1cb4a
 print("Událost byla úspěšně smazána.")
