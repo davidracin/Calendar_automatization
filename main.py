@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from googleapiclient import discovery
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -134,5 +133,4 @@ event = service.events().insert(calendarId='primary', body=event).execute()
 print(f'Událost vytvořena: {event.get("id")}')
 
 if __name__ == "__main__":
->>>>>>> fbd8ffda5fbd7eb1f7a436791eef4f6017b1cb4a
   main()
